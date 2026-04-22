@@ -1,53 +1,1083 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soporte Informático</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Soporte Técnico — Departamento de Informática y Tecnología</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Archivo:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
+    /* ──────────────────────────────────────────────
+       TOKENS
+    ────────────────────────────────────────────── */
+    :root {
+      --blue-950:  #03122b;
+      --blue-900:  #07234d;
+      --blue-800:  #0d3a7a;
+      --blue-700:  #1352a8;
+      --blue-600:  #1a6acf;
+      --blue-500:  #2282f0;
+      --blue-400:  #5aa6f5;
+      --blue-100:  #ddeeff;
+      --blue-50:   #f0f7ff;
+
+      --neutral-900: #111827;
+      --neutral-700: #374151;
+      --neutral-500: #6b7280;
+      --neutral-300: #d1d5db;
+      --neutral-100: #f3f6fb;
+      --white:       #ffffff;
+
+      --accent:     #0ea5e9;
+      --accent-dim: rgba(14,165,233,.12);
+
+      --radius-sm:  6px;
+      --radius-md:  12px;
+      --radius-lg:  20px;
+
+      --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+      --shadow-hover: 0 8px 32px rgba(19,82,168,.15), 0 2px 8px rgba(0,0,0,.08);
+
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'Archivo', sans-serif;
+    }
+
+    /* ──────────────────────────────────────────────
+       RESET
+    ────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f4f6f8;
-      margin: 0;
-      padding: 20px;
+      font-family: var(--font-body);
+      background: var(--neutral-100);
+      color: var(--neutral-900);
+      -webkit-font-smoothing: antialiased;
     }
-    h1 {
-      color: #2c3e50;
+    a { text-decoration: none; color: inherit; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    /* ──────────────────────────────────────────────
+       TOPBAR INSTITUCIONAL
+    ────────────────────────────────────────────── */
+    .topbar {
+      background: var(--blue-950);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      height: 44px;
+      gap: 1.25rem;
     }
-    p {
-      color: #555;
+    .topbar-text {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.55);
+      letter-spacing: .02em;
+      flex: 1;
     }
-    .container {
-      max-width: 500px;
-      margin: auto;
+    .topbar-text strong {
+      color: rgba(255,255,255,.85);
+      font-weight: 500;
     }
-    .btn {
-      display: block;
-      margin: 15px 0;
-      padding: 15px;
-      background-color: #0078D4;
-      color: white;
+    .topbar-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .topbar-links a {
+      font-size: .72rem;
+      color: rgba(255,255,255,.45);
+      transition: color .2s;
+    }
+    .topbar-links a:hover { color: var(--accent); }
+
+    /* ──────────────────────────────────────────────
+       HEADER
+    ────────────────────────────────────────────── */
+    .header {
+      background: var(--white);
+      border-bottom: 1px solid var(--neutral-300);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      height: 72px;
+      gap: 2rem;
+    }
+
+    /* Logo strip */
+    .logo-strip {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex: 1;
+    }
+    .logo-placeholder {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .logo-box {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-sm);
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .logo-box svg { width: 26px; height: 26px; }
+    .logo-label {
+      font-family: var(--font-head);
+      font-size: .65rem;
+      font-weight: 500;
+      color: var(--neutral-500);
+      line-height: 1.3;
+      max-width: 90px;
+    }
+    .logo-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--neutral-300);
+      flex-shrink: 0;
+    }
+
+    /* Nav */
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+    }
+    .nav-link {
+      font-family: var(--font-body);
+      font-size: .82rem;
+      font-weight: 500;
+      color: var(--neutral-700);
+      padding: .45rem .85rem;
+      border-radius: var(--radius-sm);
+      transition: background .18s, color .18s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { background: var(--blue-50); color: var(--blue-700); }
+    .nav-link.active { background: var(--blue-50); color: var(--blue-700); }
+
+    /* Mobile menu toggle */
+    .menu-toggle {
+      display: none;
+      padding: .5rem;
+      border-radius: var(--radius-sm);
+      color: var(--neutral-700);
+      transition: background .18s;
+    }
+    .menu-toggle:hover { background: var(--neutral-100); }
+
+    /* ──────────────────────────────────────────────
+       HERO
+    ────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 60%, var(--blue-700) 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 5rem 2rem 4.5rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(90,166,245,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at -10% 80%, rgba(3,18,43,.5) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    /* Subtle grid texture */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 99px;
+      padding: .3rem .9rem .3rem .5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.25);
+      animation: pulse 2.5s ease infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(34,197,94,.25); }
+      50%       { box-shadow: 0 0 0 6px rgba(34,197,94,.1); }
+    }
+    .hero-badge span {
+      font-size: .73rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.8);
+      letter-spacing: .03em;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      max-width: 640px;
+      margin-bottom: 1rem;
+      letter-spacing: -.02em;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--blue-400);
+    }
+    .hero-subtitle {
+      font-size: clamp(.9rem, 2vw, 1.05rem);
+      font-weight: 400;
+      color: rgba(255,255,255,.65);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--white);
+      color: var(--blue-800);
+      font-family: var(--font-head);
+      font-size: .88rem;
+      font-weight: 600;
+      padding: .7rem 1.5rem;
+      border-radius: var(--radius-md);
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      color: rgba(255,255,255,.9);
+      font-family: var(--font-body);
+      font-size: .88rem;
+      font-weight: 500;
+      padding: .7rem 1.5rem;
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(8px);
+      transition: background .2s, border-color .2s;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.35); }
+
+    /* Hero stats strip */
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+      flex-wrap: wrap;
+    }
+    .stat-item { display: flex; flex-direction: column; gap: .2rem; }
+    .stat-value {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .stat-label {
+      font-size: .72rem;
+      font-weight: 400;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+
+    /* ──────────────────────────────────────────────
+       MAIN CONTENT
+    ────────────────────────────────────────────── */
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* Section heading */
+    .section-heading {
+      margin-bottom: 2.5rem;
+    }
+    .section-label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--blue-600);
+      margin-bottom: .5rem;
+    }
+    .section-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      color: var(--neutral-900);
+      letter-spacing: -.02em;
+      line-height: 1.25;
+    }
+    .section-desc {
+      font-size: .95rem;
+      color: var(--neutral-500);
+      margin-top: .5rem;
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    /* ──────────────────────────────────────────────
+       PRIMARY CARDS GRID
+    ────────────────────────────────────────────── */
+    .primary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 4rem;
+    }
+
+    .card-primary {
+      background: var(--white);
+      border: 1px solid var(--neutral-300);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      cursor: pointer;
+      transition: transform .22s cubic-bezier(.34,1.56,.64,1), box-shadow .22s ease, border-color .22s;
+      position: relative;
+      overflow: hidden;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
+      color: inherit;
     }
-    .btn:hover {
-      background-color: #005ea6;
+    .card-primary::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-600), var(--blue-400));
+      opacity: 0;
+      transition: opacity .22s;
     }
+    .card-primary:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--blue-100);
+    }
+    .card-primary:hover::before { opacity: 1; }
+
+    /* Featured card */
+    .card-primary.featured {
+      background: linear-gradient(145deg, var(--blue-800) 0%, var(--blue-900) 100%);
+      border-color: transparent;
+      color: var(--white);
+    }
+    .card-primary.featured::before {
+      background: linear-gradient(90deg, var(--accent), var(--blue-400));
+      opacity: 1;
+    }
+    .card-primary.featured:hover {
+      box-shadow: 0 12px 40px rgba(7,35,77,.4), 0 4px 12px rgba(0,0,0,.15);
+      border-color: transparent;
+    }
+
+    .card-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-md);
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background .2s, border-color .2s;
+    }
+    .card-primary.featured .card-icon-wrap {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.2);
+    }
+    .card-primary:hover .card-icon-wrap {
+      background: var(--blue-100);
+    }
+    .card-icon-wrap svg { width: 26px; height: 26px; color: var(--blue-700); }
+    .card-primary.featured .card-icon-wrap svg { color: var(--blue-400); }
+
+    .card-body { flex: 1; display: flex; flex-direction: column; gap: .5rem; }
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -.01em;
+    }
+    .card-desc {
+      font-size: .85rem;
+      line-height: 1.6;
+      color: var(--neutral-500);
+    }
+    .card-primary.featured .card-desc { color: rgba(255,255,255,.6); }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: .5rem;
+    }
+    .card-tag {
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .25rem .6rem;
+      border-radius: 99px;
+      background: var(--blue-50);
+      color: var(--blue-700);
+      border: 1px solid var(--blue-100);
+    }
+    .card-primary.featured .card-tag {
+      background: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.7);
+      border-color: rgba(255,255,255,.15);
+    }
+    .card-arrow {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s, transform .2s;
+    }
+    .card-primary.featured .card-arrow {
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.2);
+    }
+    .card-primary:hover .card-arrow {
+      background: var(--blue-600);
+      border-color: var(--blue-600);
+      transform: translateX(2px);
+    }
+    .card-arrow svg { width: 14px; height: 14px; color: var(--blue-600); }
+    .card-primary:hover .card-arrow svg { color: var(--white); }
+    .card-primary.featured .card-arrow svg { color: rgba(255,255,255,.7); }
+    .card-primary.featured:hover .card-arrow { background: rgba(255,255,255,.2); border-color: rgba(255,255,255,.3); }
+    .card-primary.featured:hover .card-arrow svg { color: var(--white); }
+
+    /* ──────────────────────────────────────────────
+       SECONDARY OPTIONS (coming soon / additional)
+    ────────────────────────────────────────────── */
+    .secondary-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .secondary-heading .section-title { font-size: 1.1rem; }
+    .tag-soon {
+      font-size: .67rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .2rem .55rem;
+      border-radius: 99px;
+      background: #fef9c3;
+      color: #854d0e;
+      border: 1px solid #fde68a;
+    }
+
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .card-secondary {
+      background: var(--white);
+      border: 1px solid var(--neutral-300);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      cursor: default;
+      opacity: .65;
+      position: relative;
+      overflow: hidden;
+      transition: opacity .2s;
+    }
+    .card-secondary:hover { opacity: .8; }
+    .card-sec-icon {
+      width: 38px; height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--neutral-100);
+      border: 1px solid var(--neutral-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-sec-icon svg { width: 18px; height: 18px; color: var(--neutral-500); }
+    .card-sec-title {
+      font-family: var(--font-head);
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--neutral-700);
+      line-height: 1.3;
+    }
+    .card-sec-desc {
+      font-size: .78rem;
+      color: var(--neutral-500);
+      line-height: 1.5;
+    }
+    .badge-soon {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .2rem .55rem;
+      border-radius: 99px;
+      background: var(--neutral-100);
+      color: var(--neutral-500);
+      border: 1px solid var(--neutral-300);
+      align-self: flex-start;
+    }
+
+    /* ──────────────────────────────────────────────
+       INFO BANNER
+    ────────────────────────────────────────────── */
+    .info-banner {
+      background: var(--blue-50);
+      border: 1px solid var(--blue-100);
+      border-left: 4px solid var(--blue-600);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    .info-banner svg { width: 20px; height: 20px; color: var(--blue-600); flex-shrink: 0; margin-top: .1rem; }
+    .info-banner-text { font-size: .85rem; line-height: 1.6; color: var(--neutral-700); }
+    .info-banner-text strong { color: var(--blue-800); font-weight: 600; }
+
+    /* ──────────────────────────────────────────────
+       FOOTER
+    ────────────────────────────────────────────── */
+    .footer {
+      background: var(--blue-950);
+      padding: 2.5rem 2rem;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+    }
+    .footer-brand-icon {
+      width: 34px; height: 34px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-brand-icon svg { width: 18px; height: 18px; color: var(--blue-400); }
+    .footer-brand-text {
+      font-family: var(--font-head);
+      font-size: .8rem;
+      font-weight: 500;
+      color: rgba(255,255,255,.7);
+      line-height: 1.4;
+    }
+    .footer-brand-text small {
+      display: block;
+      font-size: .68rem;
+      color: rgba(255,255,255,.35);
+      font-weight: 400;
+    }
+    .footer-meta {
+      font-size: .72rem;
+      color: rgba(255,255,255,.3);
+      text-align: right;
+      line-height: 1.6;
+    }
+    .footer-meta a { color: rgba(255,255,255,.4); }
+    .footer-meta a:hover { color: var(--accent); }
+
+    /* ──────────────────────────────────────────────
+       MOBILE NAVIGATION DRAWER
+    ────────────────────────────────────────────── */
+    .mobile-nav {
+      display: none;
+      background: var(--white);
+      border-top: 1px solid var(--neutral-300);
+      padding: 1rem 2rem;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav .nav-link { padding: .65rem .75rem; border-radius: var(--radius-sm); }
+
+    /* ──────────────────────────────────────────────
+       RESPONSIVE
+    ────────────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .secondary-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .topbar { display: none; }
+      .header-inner { padding: 0 1.25rem; height: 64px; }
+      .logo-strip { gap: .75rem; }
+      .logo-label { display: none; }
+      .logo-divider { display: none; }
+      .header-nav { display: none; }
+      .menu-toggle { display: flex; }
+
+      .hero { padding: 3rem 1.25rem 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .stat-value { font-size: 1.15rem; }
+
+      .main { padding: 2.5rem 1.25rem 4rem; }
+
+      .primary-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .card-primary { padding: 1.5rem; }
+
+      .secondary-grid { grid-template-columns: 1fr 1fr; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-meta { text-align: left; }
+    }
+
+    @media (max-width: 480px) {
+      .secondary-grid { grid-template-columns: 1fr; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
+
+    /* ──────────────────────────────────────────────
+       ENTRANCE ANIMATION
+    ────────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner > * {
+      animation: fadeUp .55s cubic-bezier(.22,1,.36,1) both;
+    }
+    .hero-badge    { animation-delay: .05s; }
+    .hero-title    { animation-delay: .12s; }
+    .hero-subtitle { animation-delay: .18s; }
+    .hero-cta      { animation-delay: .24s; }
+    .hero-stats    { animation-delay: .30s; }
+
+    .card-primary {
+      animation: fadeUp .5s cubic-bezier(.22,1,.36,1) both;
+    }
+    .primary-grid .card-primary:nth-child(1) { animation-delay: .1s; }
+    .primary-grid .card-primary:nth-child(2) { animation-delay: .17s; }
+    .primary-grid .card-primary:nth-child(3) { animation-delay: .24s; }
   </style>
 </head>
 <body>
 
-<div class="container">
-  <h1>Soporte Informático</h1>
-  <p>Selecciona una opción:</p>
+  <!-- ── TOPBAR ── -->
+  <div class="topbar">
+    <span class="topbar-text">
+      <strong>Ministerio de Salud y Asistencia Social</strong> — Hospital de Referencia Nacional de Enfermedades Respiratorias
+    </span>
+    <nav class="topbar-links">
+      <a href="#">MSPAS</a>
+      <a href="#">HRNER</a>
+      <a href="#">Directorio</a>
+    </nav>
+  </div>
 
-  <a class="btn" href="#">Reportar problema técnico</a>
-  <a class="btn" href="#">Solicitar usuario</a>
-  <a class="btn" href="#">Solicitar equipo</a>
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-inner">
 
-</div>
+      <!-- Logos -->
+      <div class="logo-strip">
+        <!-- Logo MSPAS placeholder -->
+        <div class="logo-placeholder">
+          <div class="logo-box">
+            <!-- Cruz de Lorena simplificada / placeholder MSPAS -->
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="11" y="2" width="4" height="5" rx="1" fill="#1352a8"/>
+              <rect x="11" y="9" width="4" height="14" rx="1" fill="#1352a8"/>
+              <rect x="6"  y="7" width="14" height="3.5" rx="1" fill="#1352a8"/>
+              <rect x="7.5" y="13" width="11" height="3" rx="1" fill="#1352a8"/>
+            </svg>
+          </div>
+          <span class="logo-label">Ministerio de Salud y Asistencia Social</span>
+        </div>
 
+        <div class="logo-divider"></div>
+
+        <!-- Logo HRNER placeholder -->
+        <div class="logo-placeholder">
+          <div class="logo-box">
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6h18v2H4zM4 18h18v2H4z" fill="#1352a8" opacity=".25"/>
+              <path d="M7 8v10M13 8v10M19 8v10" stroke="#1352a8" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 13h6" stroke="#1352a8" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="19" cy="13" r="2.5" stroke="#1a6acf" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <span class="logo-label">HRNER</span>
+        </div>
+
+        <div class="logo-divider"></div>
+
+        <!-- Logo Informática placeholder -->
+        <div class="logo-placeholder">
+          <div class="logo-box">
+            <!-- Asterisco de 6 puntas (referencia al logo del Depto.) -->
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="13" y1="4"  x2="13" y2="22" stroke="#1352a8" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="5"  y1="8.5" x2="21" y2="17.5" stroke="#1352a8" stroke-width="2.2" stroke-linecap="round"/>
+              <line x1="21" y1="8.5" x2="5"  y2="17.5" stroke="#1352a8" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="logo-label">Informática y Tecnología</span>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="header-nav">
+        <a href="#" class="nav-link active">Inicio</a>
+        <a href="#" class="nav-link">Guías Técnicas</a>
+        <a href="#" class="nav-link">Inventario</a>
+        <a href="#" class="nav-link">Contacto</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile nav drawer -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="#" class="nav-link active">Inicio</a>
+      <a href="#" class="nav-link">Guías Técnicas</a>
+      <a href="#" class="nav-link">Inventario</a>
+      <a href="#" class="nav-link">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Soporte disponible — Lunes a viernes, 8:00 – 16:30</span>
+      </div>
+
+      <h1 class="hero-title">
+        Portal de <em>Soporte Técnico</em><br/>Institucional
+      </h1>
+
+      <p class="hero-subtitle">
+        Bienvenido al portal del Departamento de Informática y Tecnología del HRNER.
+        Aquí puede crear solicitudes de soporte, consultar guías técnicas y acceder
+        a recursos institucionales.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M8 1.5v13M1.5 8h13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Crear ticket de soporte
+        </a>
+        <a href="#" class="btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          Ver guías técnicas
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-value">~98</span>
+          <span class="stat-label">Equipos activos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">~68</span>
+          <span class="stat-label">Impresoras</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">~66</span>
+          <span class="stat-label">Cámaras CCTV</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">M365</span>
+          <span class="stat-label">Plataforma cloud</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <!-- Info banner -->
+    <div class="info-banner">
+      <svg viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="8.5" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M10 9v5M10 7v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <p class="info-banner-text">
+        <strong>¿Primera vez?</strong> Para solicitudes de compra de equipo tecnológico, consulte primero
+        las <a href="#" style="color:var(--blue-700); font-weight:500;">Guías de Especificaciones</a>
+        antes de generar su requerimiento. Incluir las especificaciones correctas agiliza el proceso de adquisición.
+      </p>
+    </div>
+
+    <!-- Primary section -->
+    <div class="section-heading">
+      <p class="section-label">Servicios principales</p>
+      <h2 class="section-title">¿Qué necesita hoy?</h2>
+      <p class="section-desc">Acceda directamente al servicio que necesita. Todos los formularios están disponibles 24/7.</p>
+    </div>
+
+    <div class="primary-grid">
+
+      <!-- Card 1: Ticket soporte — FEATURED -->
+      <a href="#" class="card-primary featured">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="20" height="16" rx="2.5"/>
+            <path d="M3 10h20"/>
+            <path d="M8 15h4M8 18h6"/>
+            <circle cx="19" cy="15.5" r="3.5"/>
+            <path d="M21.5 18l2 2"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Crear Ticket de Soporte</h3>
+          <p class="card-desc">
+            Reporte un problema técnico, solicite mantenimiento de equipo o asistencia con software y conectividad.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span class="card-tag">Soporte</span>
+          <span class="card-arrow">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7h8M8 4l3 3-3 3"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 2: Guías técnicas -->
+      <a href="#" class="card-primary">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 4h10l6 6v12a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1z"/>
+            <path d="M15 4v6h6"/>
+            <path d="M9 14h8M9 17h5"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Guías Técnicas</h3>
+          <p class="card-desc">
+            Consulte manuales, procedimientos institucionales y documentación del Plan Maestro de Infraestructura.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span class="card-tag">Documentación</span>
+          <span class="card-arrow">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7h8M8 4l3 3-3 3"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Card 3: Especificaciones de compra -->
+      <a href="#" class="card-primary">
+        <div class="card-icon-wrap">
+          <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="9" height="9" rx="1.5"/>
+            <rect x="14" y="3" width="9" height="9" rx="1.5"/>
+            <rect x="3" y="14" width="9" height="9" rx="1.5"/>
+            <path d="M14 18.5h9M18.5 14v9"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Especificaciones de Compra</h3>
+          <p class="card-desc">
+            Consulte los estándares institucionales de equipo tecnológico antes de elaborar una solicitud de adquisición.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span class="card-tag">Adquisiciones</span>
+          <span class="card-arrow">
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7h8M8 4l3 3-3 3"/>
+            </svg>
+          </span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Secondary section -->
+    <div class="secondary-heading">
+      <h2 class="section-title">Próximamente</h2>
+      <span class="tag-soon">En desarrollo</span>
+    </div>
+
+    <div class="secondary-grid">
+
+      <div class="card-secondary">
+        <div class="card-sec-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <rect x="2" y="3" width="14" height="12" rx="1.5"/>
+            <path d="M5 9h8M5 12h5"/>
+          </svg>
+        </div>
+        <div>
+          <p class="card-sec-title">Estado de Tickets</p>
+          <p class="card-sec-desc">Consulte el estado de sus solicitudes de soporte en tiempo real.</p>
+        </div>
+        <span class="badge-soon">Próximamente</span>
+      </div>
+
+      <div class="card-secondary">
+        <div class="card-sec-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M9 2a7 7 0 100 14A7 7 0 009 2z"/>
+            <path d="M9 6v4l2.5 2.5"/>
+          </svg>
+        </div>
+        <div>
+          <p class="card-sec-title">Historial de Servicios</p>
+          <p class="card-sec-desc">Acceda al historial de mantenimientos y atenciones de su equipo.</p>
+        </div>
+        <span class="badge-soon">Próximamente</span>
+      </div>
+
+      <div class="card-secondary">
+        <div class="card-sec-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 4h12v1a6 6 0 01-12 0V4zM3 14h12"/>
+            <path d="M9 10v4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="card-sec-title">Directorio TI</p>
+          <p class="card-sec-desc">Contactos del departamento y encargados por área hospitalaria.</p>
+        </div>
+        <span class="badge-soon">Próximamente</span>
+      </div>
+
+      <div class="card-secondary">
+        <div class="card-sec-icon">
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M2 13l4-4 3 3 4-5 3 3"/>
+            <rect x="2" y="2" width="14" height="14" rx="1.5" stroke-opacity=".4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="card-sec-title">Reportes e Indicadores</p>
+          <p class="card-sec-desc">Estadísticas del servicio de soporte y estado de infraestructura.</p>
+        </div>
+        <span class="badge-soon">Próximamente</span>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-icon">
+          <svg viewBox="0 0 18 18" fill="none">
+            <line x1="9" y1="2"  x2="9" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="2.5" y1="5.5" x2="15.5" y2="12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="15.5" y1="5.5" x2="2.5" y2="12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="footer-brand-text">
+          Departamento de Informática y Tecnología
+          <small>Hospital de Referencia Nacional de Enfermedades Respiratorias — HRNER</small>
+        </div>
+      </div>
+      <div class="footer-meta">
+        © 2026 HRNER · Ministerio de Salud y Asistencia Social<br/>
+        Guatemala, C.A.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const toggle = document.getElementById('menuToggle');
+    const nav    = document.getElementById('mobileNav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
