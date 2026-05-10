@@ -1,0 +1,557 @@
+/* =========================================================
+   GUÍAS TÉCNICAS — ESTILOS ADICIONALES
+   Extiende style.css sin modificarlo
+========================================================= */
+
+/* =========================================================
+   HERO COMPACTO (variante para páginas interiores)
+========================================================= */
+
+.hero--compact {
+  padding: 3.5rem 2rem 3rem;
+}
+
+.hero--compact .hero-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: .75rem;
+}
+
+.hero--compact .hero-subtitle {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CATEGORY GRID (selector de categoría)
+========================================================= */
+
+.category-grid {
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: .75rem;
+
+  margin-bottom: 3rem;
+}
+
+.category-btn {
+
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+
+  padding: .9rem 1.1rem;
+
+  border-radius: 14px;
+
+  border: 1.5px solid var(--neutral-300);
+  background: var(--white);
+
+  font-family: var(--font-body);
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--neutral-700);
+
+  cursor: pointer;
+  text-align: left;
+
+  transition:
+    border-color .22s ease,
+    background .22s ease,
+    color .22s ease,
+    transform .22s cubic-bezier(.22,1,.36,1),
+    box-shadow .22s ease;
+}
+
+.category-btn .material-symbols-rounded {
+  font-size: 22px;
+  color: var(--neutral-500);
+  transition: color .22s ease;
+  flex-shrink: 0;
+}
+
+.category-btn:hover {
+
+  border-color: var(--blue-600);
+  background: var(--blue-50);
+  color: var(--blue-800);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 14px rgba(19, 82, 168, .10);
+}
+
+.category-btn:hover .material-symbols-rounded {
+  color: var(--blue-600);
+}
+
+.category-btn.active {
+
+  border-color: var(--blue-700);
+  background: var(--blue-800);
+  color: var(--white);
+
+  box-shadow:
+    0 4px 18px rgba(13, 58, 122, .28);
+}
+
+.category-btn.active .material-symbols-rounded {
+  color: var(--yellow-500);
+}
+
+/* =========================================================
+   SPEC PANELS
+========================================================= */
+
+.spec-panel {
+  display: none;
+  animation: panelFadeIn .3s ease;
+}
+
+.spec-panel.active {
+  display: block;
+}
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Encabezado del panel */
+.spec-panel-header {
+
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+
+  margin-bottom: 2rem;
+
+  padding-bottom: 1.5rem;
+
+  border-bottom: 1.5px solid var(--neutral-300);
+}
+
+.spec-panel-icon {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 14px;
+
+  background: var(--blue-50);
+
+  flex-shrink: 0;
+}
+
+.spec-panel-icon .material-symbols-rounded {
+  font-size: 28px;
+  color: var(--blue-700);
+}
+
+.spec-panel-title {
+
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+
+  margin-bottom: .2rem;
+}
+
+.spec-panel-subtitle {
+
+  font-size: .875rem;
+  color: var(--neutral-500);
+}
+
+/* Grid de cards */
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 4rem;
+}
+
+.spec-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+}
+
+/* =========================================================
+   SPEC CARDS
+========================================================= */
+
+.spec-card {
+
+  border-radius: 20px;
+  padding: 1.8rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  border: 1.5px solid var(--neutral-300);
+  background: var(--white);
+}
+
+/* Variante estándar */
+.spec-card--standard {
+  border-top: 4px solid var(--blue-700);
+}
+
+/* Variante excepción */
+.spec-card--exception {
+  border-top: 4px solid var(--yellow-800);
+  background: #fafafa;
+}
+
+.spec-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
+}
+
+.spec-card-desc {
+  font-size: .9rem;
+  line-height: 1.65;
+  color: var(--neutral-500);
+}
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.spec-badge {
+
+  display: inline-block;
+
+  padding: .32rem .8rem;
+
+  border-radius: 999px;
+
+  font-size: .68rem;
+  font-weight: 700;
+
+  letter-spacing: .07em;
+  text-transform: uppercase;
+
+  width: fit-content;
+}
+
+.spec-badge--standard {
+  background: var(--blue-100);
+  color: var(--blue-800);
+}
+
+.spec-badge--exception {
+  background: var(--yellow-100);
+  color: #5f4300;
+}
+
+/* =========================================================
+   SPEC LIST
+========================================================= */
+
+.spec-list {
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: .1rem;
+}
+
+.spec-item {
+
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+
+  padding: .75rem 0;
+
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.spec-item:last-child {
+  border-bottom: none;
+}
+
+.spec-icon {
+
+  font-size: 20px !important;
+  color: var(--blue-600);
+
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+
+.spec-list--exception .spec-icon {
+  color: #a07800;
+}
+
+.spec-label {
+
+  display: block;
+
+  font-size: .72rem;
+  font-weight: 700;
+
+  letter-spacing: .04em;
+  text-transform: uppercase;
+
+  color: var(--neutral-500);
+
+  margin-bottom: .2rem;
+}
+
+.spec-value {
+
+  display: block;
+
+  font-size: .9rem;
+  line-height: 1.5;
+
+  color: var(--neutral-900);
+}
+
+/* =========================================================
+   FOOTNOTE
+========================================================= */
+
+.spec-footnote {
+
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+
+  padding: .85rem 1rem;
+
+  border-radius: 10px;
+
+  background: var(--blue-50);
+
+  font-size: .82rem;
+  line-height: 1.55;
+
+  color: var(--blue-800);
+
+  margin-top: auto;
+}
+
+.spec-footnote .material-symbols-rounded {
+  font-size: 18px;
+  color: var(--blue-600);
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+
+.spec-footnote--warning {
+  background: var(--yellow-50);
+  color: #5f4300;
+}
+
+.spec-footnote--warning .material-symbols-rounded {
+  color: #a07800;
+}
+
+.spec-footnote--info {
+  background: var(--blue-50);
+  color: var(--blue-800);
+}
+
+/* =========================================================
+   EXCEPTION CALLOUT
+========================================================= */
+
+.exception-callout {
+
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+
+  padding: 1rem 1.1rem;
+
+  border-radius: 12px;
+
+  background: var(--yellow-50);
+
+  border: 1px solid var(--yellow-500);
+}
+
+.exception-callout .material-symbols-rounded {
+  font-size: 22px;
+  color: #a07800;
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+
+.exception-callout strong {
+
+  display: block;
+
+  font-size: .88rem;
+  font-weight: 600;
+
+  color: #5f4300;
+
+  margin-bottom: .3rem;
+}
+
+.exception-callout p {
+
+  font-size: .84rem;
+  line-height: 1.55;
+
+  color: #7a5200;
+}
+
+/* =========================================================
+   CONTACT BTN (dentro de tarjeta excepción)
+========================================================= */
+
+.spec-contact-btn {
+
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+
+  padding: .75rem 1.2rem;
+
+  border-radius: 12px;
+
+  background: var(--blue-800);
+  color: var(--white);
+
+  font-size: .88rem;
+  font-weight: 600;
+
+  margin-top: auto;
+
+  transition:
+    background .25s ease,
+    transform .25s cubic-bezier(.22,1,.36,1),
+    box-shadow .25s ease;
+}
+
+.spec-contact-btn .material-symbols-rounded {
+  font-size: 18px;
+  color: var(--white);
+}
+
+.spec-contact-btn:hover {
+
+  background: var(--blue-700);
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px rgba(13, 58, 122, .22);
+}
+
+/* =========================================================
+   GUIDE CTA (sección inferior)
+========================================================= */
+
+.guide-cta {
+
+  margin-top: 3rem;
+
+  padding: 2.2rem 2rem;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--blue-900) 0%,
+      var(--blue-800) 100%
+    );
+
+  position: relative;
+  overflow: hidden;
+}
+
+.guide-cta::before {
+
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at 90% 50%, rgba(255,255,255,.05), transparent 40%);
+}
+
+.guide-cta-inner {
+
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  flex-wrap: wrap;
+}
+
+.guide-cta-title {
+
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+
+  color: var(--white);
+
+  margin-bottom: .4rem;
+}
+
+.guide-cta-desc {
+
+  font-size: .9rem;
+  line-height: 1.6;
+
+  color: rgba(255,255,255,.7);
+
+  max-width: 480px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .hero--compact {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spec-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .spec-grid--single {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .category-grid {
+    grid-template-columns: 1fr;
+  }
+}

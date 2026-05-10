@@ -1,0 +1,389 @@
+/* =========================================================
+   CONTACTO — ESTILOS ADICIONALES
+   Extiende style.css sin modificarlo.
+   El hero--compact y hero-divider se definen en guias.css;
+   si se usa este archivo sin guias.css, incluir esas reglas aquí.
+========================================================= */
+
+/* =========================================================
+   HERO COMPACTO (duplicado por si no se carga guias.css)
+========================================================= */
+
+.hero--compact {
+  padding: 3.5rem 2rem 3rem;
+}
+
+.hero--compact .hero-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: .75rem;
+}
+
+.hero--compact .hero-subtitle {
+  margin-bottom: 0;
+}
+
+/* =========================================================
+   CONTACT GRID
+========================================================= */
+
+.contact-grid {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 1.4rem;
+
+  margin-bottom: 3rem;
+}
+
+/* =========================================================
+   CONTACT CARDS — base
+========================================================= */
+
+.contact-card {
+
+  position: relative;
+
+  padding: 2rem;
+
+  border-radius: 24px;
+
+  background: var(--white);
+
+  border: 1px solid rgba(209, 213, 219, .8);
+  border-top: 4px solid var(--blue-300);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease,
+    border-color .3s ease;
+}
+
+/* Las tarjetas que son <a> tienen cursor pointer por defecto;
+   las <div> no necesitan cursor especial */
+a.contact-card {
+  cursor: pointer;
+}
+
+a.contact-card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: rgba(19, 82, 168, .14);
+  border-top-color: var(--blue-600);
+
+  box-shadow: var(--shadow-hover);
+}
+
+/* Tarjeta destacada — correo */
+.contact-card--featured {
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--blue-800),
+      var(--blue-900)
+    );
+
+  color: var(--white);
+
+  border: none;
+  border-top: none;
+
+  overflow: hidden;
+}
+
+.contact-card--featured::before {
+
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--yellow-800),
+      var(--blue-400)
+    );
+
+  opacity: .95;
+}
+
+.contact-card--featured:hover {
+
+  border-top: none;
+}
+
+/* Tarjeta pendiente — teléfono */
+.contact-card--pending {
+
+  background: var(--neutral-100);
+
+  border-color: var(--neutral-300);
+  border-top-color: var(--neutral-300);
+
+  opacity: .75;
+
+  cursor: default;
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONTACT CARD — HEADER (icono + título)
+========================================================= */
+
+.contact-card-header {
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Icono wrap */
+.contact-icon-wrap {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 14px;
+
+  background: var(--blue-50);
+
+  flex-shrink: 0;
+
+  transition:
+    background .28s ease,
+    transform .28s ease;
+}
+
+.contact-icon-wrap .material-symbols-rounded {
+
+  font-size: 1.6rem;
+  color: var(--blue-700);
+
+  transition: color .28s ease;
+}
+
+/* Icono en tarjeta featured */
+.contact-card--featured .contact-icon-wrap {
+  background: rgba(255, 255, 255, .1);
+}
+
+.contact-card--featured .contact-icon-wrap .material-symbols-rounded {
+  color: var(--white);
+}
+
+/* Icono en tarjeta pendiente */
+.contact-icon-wrap--pending {
+  background: var(--neutral-200) !important;
+}
+
+.contact-icon-wrap--pending .material-symbols-rounded {
+  color: var(--neutral-500) !important;
+}
+
+/* Hover icono — tarjetas activas */
+a.contact-card:hover .contact-icon-wrap {
+  transform: translateY(-2px);
+  background: var(--blue-700);
+}
+
+a.contact-card:hover .contact-icon-wrap .material-symbols-rounded {
+  color: var(--white);
+}
+
+/* =========================================================
+   CONTACT CARD — TEXTOS
+========================================================= */
+
+.contact-card-title {
+
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+
+  color: var(--neutral-900);
+}
+
+.contact-card--featured .contact-card-title {
+  color: var(--white);
+}
+
+.contact-card-title--pending {
+  color: var(--neutral-500);
+}
+
+.contact-card-channel {
+
+  font-size: .75rem;
+  font-weight: 600;
+
+  letter-spacing: .06em;
+  text-transform: uppercase;
+
+  color: var(--neutral-500);
+
+  margin-top: .15rem;
+}
+
+.contact-card--featured .contact-card-channel {
+  color: rgba(255, 255, 255, .55);
+}
+
+.contact-card-desc {
+
+  font-size: .9rem;
+  line-height: 1.7;
+
+  color: var(--neutral-500);
+}
+
+.contact-card--featured .contact-card-desc {
+  color: rgba(255, 255, 255, .72);
+}
+
+/* Valor principal (correo, dirección, etc.) */
+.contact-card-value {
+
+  font-family: var(--font-head);
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: var(--blue-700);
+
+  padding: .75rem 1rem;
+
+  border-radius: 10px;
+
+  background: var(--blue-50);
+
+  border: 1px solid var(--blue-100);
+
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+.contact-card--featured .contact-card-value {
+  word-break: break-all;
+}
+
+.contact-card--featured .contact-card-value {
+
+  background: rgba(255, 255, 255, .08);
+  border-color: rgba(255, 255, 255, .14);
+
+  color: var(--white);
+}
+
+.contact-card-value--pending {
+
+  color: var(--neutral-500);
+  background: var(--neutral-200);
+  border-color: var(--neutral-300);
+
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Fila info (horario) */
+.contact-info-row {
+
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  font-size: .85rem;
+  color: var(--neutral-500);
+}
+
+.contact-info-row .material-symbols-rounded {
+  font-size: 18px;
+  color: var(--neutral-400, var(--neutral-500));
+}
+
+/* =========================================================
+   CONTACT CARD — FOOTER
+========================================================= */
+
+.contact-card-footer {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto;
+}
+
+/* =========================================================
+   TAGS DE CONTACTO
+========================================================= */
+
+.contact-tag {
+
+  display: inline-block;
+
+  padding: .35rem .8rem;
+
+  border-radius: 999px;
+
+  font-size: .68rem;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.contact-tag--primary {
+  background: var(--yellow-800);
+  color: #5f4300;
+}
+
+.contact-tag--secondary {
+  background: var(--yellow-500);
+  color: #5f4300;
+}
+
+.contact-tag--pending {
+  background: var(--neutral-200);
+  color: var(--neutral-500);
+}
+
+/* =========================================================
+   ARROW (reutiliza .card-arrow de style.css, sin cambios)
+========================================================= */
+
+/* El comportamiento del arrow en hover ya está cubierto
+   por .card-primary:hover .card-arrow en style.css.
+   Las contact-card usan la misma clase .card-arrow,
+   así que solo necesitamos el override para la featured: */
+
+a.contact-card--featured:hover .card-arrow {
+  background: rgba(255, 255, 255, .15);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .hero--compact {
+    padding: 3rem 1.25rem 2.5rem;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

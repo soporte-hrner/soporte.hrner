@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Guías Técnicas — HRNER</title>
+  <link rel="icon" type="image/png" href="img/favicon_Info.png">
+
+  <!-- ======================================================
+       GOOGLE FONTS
+  ====================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Archivo:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <!-- ======================================================
+       MATERIAL SYMBOLS
+  ====================================================== -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- ======================================================
+       MAIN CSS
+  ====================================================== -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/guias.css" />
+
+</head>
+
+<body>
+
+  <!-- ======================================================
+       TOPBAR
+  ====================================================== -->
+  <div class="topbar">
+    <span class="topbar-text">
+      <strong>Ministerio de Salud y Asistencia Social</strong>
+      — Hospital de Referencia Nacional de Enfermedades Respiratorias
+    </span>
+  </div>
+
+  <!-- ======================================================
+       HEADER
+  ====================================================== -->
+  <header class="header">
+
+    <div class="header-inner">
+
+      <div class="logo-strip">
+        <img
+          src="img/Logotipo-MSPAS.png"
+          alt="MSPAS"
+          class="main-logo" />
+      </div>
+
+      <nav class="header-nav">
+        <a href="index2.html" class="nav-link">Inicio</a>
+        <a href="guias-tecnicas.html" class="nav-link active">Guías Técnicas</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="menu-toggle" id="menuToggle">
+        <span class="material-symbols-rounded">menu</span>
+      </button>
+
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index2.html" class="nav-link">Inicio</a>
+      <a href="guias-tecnicas.html" class="nav-link active">Guías Técnicas</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+    </nav>
+
+  </header>
+
+  <!-- ======================================================
+       HERO — reducido para página interior
+  ====================================================== -->
+  <section class="hero hero--compact">
+
+    <div class="hero-inner">
+
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Lineamientos actualizados — 2026</span>
+      </div>
+
+      <h1 class="hero-title">
+        Guías Técnicas de <em>Adquisición</em>
+      </h1>
+
+      <p class="hero-subtitle">
+        Lineamientos institucionales del Departamento de Informática para la
+        compra de equipo tecnológico. Consulte la especificación correcta
+        antes de elaborar su requerimiento.
+      </p>
+
+      <div class="hero-divider"></div>
+
+    </div>
+
+  </section>
+
+  <!-- ======================================================
+       MAIN
+  ====================================================== -->
+  <main class="main">
+
+    <!-- ======================================================
+         INFO BANNER
+    ====================================================== -->
+    <div class="info-banner">
+      <span class="material-symbols-rounded">info</span>
+      <p class="info-banner-text">
+        <strong>¿Cómo usar estas guías?</strong>
+        <span class="info-banner-body">
+          Identifique la categoría de equipo que necesita y copie la
+          especificación estándar en su formulario de requerimiento.
+          Si su caso no encaja en el perfil estándar, comuníquese con
+          el Departamento de Informática <strong>antes</strong> de generar la solicitud.
+        </span>
+      </p>
+    </div>
+
+    <!-- ======================================================
+         CATEGORÍAS — GRID DE ACCESO RÁPIDO
+    ====================================================== -->
+    <div class="section-heading">
+      <p class="section-label">Categorías</p>
+      <h2 class="section-title">Seleccione el tipo de equipo</h2>
+      <p class="section-desc">
+        Haga clic en una categoría para ver sus especificaciones y lineamientos de adquisición.
+      </p>
+    </div>
+
+    <div class="category-grid">
+
+      <button class="category-btn active" data-target="computadoras">
+        <span class="material-symbols-rounded">computer</span>
+        <span>Computadoras de escritorio</span>
+      </button>
+
+      <button class="category-btn" data-target="laptops">
+        <span class="material-symbols-rounded">laptop</span>
+        <span>Laptops</span>
+      </button>
+
+      <button class="category-btn" data-target="impresoras">
+        <span class="material-symbols-rounded">print</span>
+        <span>Impresoras</span>
+      </button>
+
+      <button class="category-btn" data-target="escaneres">
+        <span class="material-symbols-rounded">scanner</span>
+        <span>Escáneres</span>
+      </button>
+
+      <button class="category-btn" data-target="ups">
+        <span class="material-symbols-rounded">battery_charging_full</span>
+        <span>UPS</span>
+      </button>
+
+      <button class="category-btn" data-target="reguladores">
+        <span class="material-symbols-rounded">electrical_services</span>
+        <span>Reguladores de voltaje</span>
+      </button>
+
+    </div>
+
+    <!-- ======================================================
+         PANELES DE ESPECIFICACIÓN
+    ====================================================== -->
+
+    <!-- COMPUTADORAS DE ESCRITORIO -->
+    <div class="spec-panel active" id="computadoras">
+
+      <div class="spec-panel-header">
+        <div class="spec-panel-icon">
+          <span class="material-symbols-rounded">computer</span>
+        </div>
+        <div>
+          <h2 class="spec-panel-title">Computadoras de escritorio</h2>
+          <p class="spec-panel-subtitle">Uso administrativo y clínico general</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+
+        <!-- ESTÁNDAR -->
+        <div class="spec-card spec-card--standard">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--standard">Especificación estándar</span>
+            <p class="spec-card-desc">
+              Para trabajo administrativo, gestión de expedientes, correo
+              institucional y aplicaciones de ofimática (Microsoft 365).
+            </p>
+          </div>
+
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">memory</span>
+              <div>
+                <span class="spec-label">Procesador</span>
+                <span class="spec-value">Intel Core i5 (10.ª gen o superior) / AMD Ryzen 5 equivalente</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">storage</span>
+              <div>
+                <span class="spec-label">Memoria RAM</span>
+                <span class="spec-value">8 GB DDR4 (mínimo); 16 GB recomendado</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">hard_drive</span>
+              <div>
+                <span class="spec-label">Almacenamiento</span>
+                <span class="spec-value">SSD 256 GB (mínimo); 512 GB recomendado</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">monitor</span>
+              <div>
+                <span class="spec-label">Monitor</span>
+                <span class="spec-value">21.5" Full HD (1920×1080), panel IPS</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">wifi</span>
+              <div>
+                <span class="spec-label">Conectividad</span>
+                <span class="spec-value">Ethernet Gigabit integrada; Wi-Fi opcional</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">system_update_alt</span>
+              <div>
+                <span class="spec-label">Sistema operativo</span>
+                <span class="spec-value">Windows 11 Pro (licencia institucional)</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="spec-footnote">
+            <span class="material-symbols-rounded">check_circle</span>
+            Compatible con Microsoft 365 Business Premium institucional.
+          </div>
+        </div>
+
+        <!-- EXCEPCIÓN -->
+        <div class="spec-card spec-card--exception">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--exception">Requerimiento especial</span>
+            <p class="spec-card-desc">
+              Para estaciones de trabajo con demandas específicas: diseño gráfico,
+              procesamiento de imágenes médicas, servidores departamentales u otro
+              uso fuera del perfil estándar.
+            </p>
+          </div>
+
+          <div class="exception-callout">
+            <span class="material-symbols-rounded">support_agent</span>
+            <div>
+              <strong>Consulte con Informática antes de generar el requerimiento.</strong>
+              <p>
+                Los equipos especiales requieren justificación técnica y evaluación
+                por parte del Departamento de Informática para verificar compatibilidad
+                con la infraestructura institucional y optimizar el presupuesto.
+              </p>
+            </div>
+          </div>
+
+          <ul class="spec-list spec-list--exception">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">cases</span>
+              <div>
+                <span class="spec-label">Casos que califican</span>
+                <span class="spec-value">Diseño gráfico, edición de video, imágenes médicas DICOM, servidores locales</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">attach_file</span>
+              <div>
+                <span class="spec-label">Documentación requerida</span>
+                <span class="spec-value">Justificación del área solicitante + visto bueno del Jefe de Departamento</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">schedule</span>
+              <div>
+                <span class="spec-label">Tiempo de respuesta</span>
+                <span class="spec-value">3–5 días hábiles para evaluación técnica</span>
+              </div>
+            </li>
+          </ul>
+
+          <a href="https://forms.office.com/r/LL775163gp" class="spec-contact-btn">
+            <span class="material-symbols-rounded">add</span>
+            Crear ticket de consulta
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LAPTOPS -->
+    <div class="spec-panel" id="laptops">
+
+      <div class="spec-panel-header">
+        <div class="spec-panel-icon">
+          <span class="material-symbols-rounded">laptop</span>
+        </div>
+        <div>
+          <h2 class="spec-panel-title">Laptops</h2>
+          <p class="spec-panel-subtitle">Uso móvil administrativo y de campo</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+
+        <div class="spec-card spec-card--standard">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--standard">Especificación estándar</span>
+            <p class="spec-card-desc">
+              Para personal que requiere movilidad entre áreas del hospital
+              o trabajo remoto eventual con Microsoft 365.
+            </p>
+          </div>
+
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">memory</span>
+              <div>
+                <span class="spec-label">Procesador</span>
+                <span class="spec-value">Intel Core i5 (12.ª gen o superior) / AMD Ryzen 5 6000</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">storage</span>
+              <div>
+                <span class="spec-label">Memoria RAM</span>
+                <span class="spec-value">8 GB DDR4/DDR5; 16 GB recomendado</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">hard_drive</span>
+              <div>
+                <span class="spec-label">Almacenamiento</span>
+                <span class="spec-value">SSD NVMe 256 GB mínimo</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">monitor</span>
+              <div>
+                <span class="spec-label">Pantalla</span>
+                <span class="spec-value">14" Full HD (1920×1080) mínimo</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">battery_full</span>
+              <div>
+                <span class="spec-label">Batería</span>
+                <span class="spec-value">Autonomía mínima 6 horas en uso real</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">system_update_alt</span>
+              <div>
+                <span class="spec-label">Sistema operativo</span>
+                <span class="spec-value">Windows 11 Pro</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="spec-footnote">
+            <span class="material-symbols-rounded">info</span>
+            La asignación de laptops requiere autorización del Gerente Administrativo Financiero.
+          </div>
+        </div>
+
+        <div class="spec-card spec-card--exception">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--exception">Requerimiento especial</span>
+            <p class="spec-card-desc">
+              Equipos con pantalla mayor, mayor rendimiento gráfico o uso específico
+              en campo clínico.
+            </p>
+          </div>
+
+          <div class="exception-callout">
+            <span class="material-symbols-rounded">support_agent</span>
+            <div>
+              <strong>Consulte con Informática antes de generar el requerimiento.</strong>
+              <p>Se evalúa caso por caso según presupuesto y justificación del área.</p>
+            </div>
+          </div>
+
+          <a href="https://forms.office.com/r/LL775163gp" class="spec-contact-btn">
+            <span class="material-symbols-rounded">add</span>
+            Crear ticket de consulta
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- IMPRESORAS -->
+    <div class="spec-panel" id="impresoras">
+
+      <div class="spec-panel-header">
+        <div class="spec-panel-icon">
+          <span class="material-symbols-rounded">print</span>
+        </div>
+        <div>
+          <h2 class="spec-panel-title">Impresoras</h2>
+          <p class="spec-panel-subtitle">Estándar institucional de impresión</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+
+        <div class="spec-card spec-card--standard">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--standard">Especificación estándar</span>
+            <p class="spec-card-desc">
+              Impresión monocromática para documentos administrativos, oficios,
+              reportes e informes internos.
+            </p>
+          </div>
+
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">print</span>
+              <div>
+                <span class="spec-label">Tecnología</span>
+                <span class="spec-value">Láser monocromática (tóner)</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">speed</span>
+              <div>
+                <span class="spec-label">Velocidad mínima</span>
+                <span class="spec-value">22 ppm (páginas por minuto)</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">content_copy</span>
+              <div>
+                <span class="spec-label">Funciones</span>
+                <span class="spec-value">Impresión dúplex automática recomendada</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">wifi</span>
+              <div>
+                <span class="spec-label">Conectividad</span>
+                <span class="spec-value">USB + Red Ethernet; Wi-Fi opcional</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">inventory_2</span>
+              <div>
+                <span class="spec-label">Modelo de referencia</span>
+                <span class="spec-value">HP LaserJet línea M200 / M400 (según volumen)</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="spec-footnote spec-footnote--warning">
+            <span class="material-symbols-rounded">warning</span>
+            Las impresoras de tinta (inkjet) no son parte del estándar institucional
+            y no serán aprobadas en nuevas adquisiciones.
+          </div>
+        </div>
+
+        <div class="spec-card spec-card--exception">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--exception">Requerimiento especial</span>
+            <p class="spec-card-desc">
+              Impresión a color, gran formato, o alto volumen para áreas específicas
+              (Dirección, Comunicaciones, etc.).
+            </p>
+          </div>
+
+          <div class="exception-callout">
+            <span class="material-symbols-rounded">support_agent</span>
+            <div>
+              <strong>Consulte con Informática antes de generar el requerimiento.</strong>
+              <p>La impresión a color requiere justificación de uso y evaluación de costo-beneficio.</p>
+            </div>
+          </div>
+
+          <a href="https://forms.office.com/r/LL775163gp" class="spec-contact-btn">
+            <span class="material-symbols-rounded">add</span>
+            Crear ticket de consulta
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ESCÁNERES -->
+    <div class="spec-panel" id="escaneres">
+
+      <div class="spec-panel-header">
+        <div class="spec-panel-icon">
+          <span class="material-symbols-rounded">scanner</span>
+        </div>
+        <div>
+          <h2 class="spec-panel-title">Escáneres</h2>
+          <p class="spec-panel-subtitle">Digitalización de documentos</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+
+        <div class="spec-card spec-card--standard">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--standard">Especificación estándar</span>
+            <p class="spec-card-desc">
+              Digitalización de expedientes, oficios y documentos administrativos en escala de grises o color.
+            </p>
+          </div>
+
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">scanner</span>
+              <div>
+                <span class="spec-label">Tipo</span>
+                <span class="spec-value">Escáner de cama plana con alimentador automático (ADF)</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">high_quality</span>
+              <div>
+                <span class="spec-label">Resolución mínima</span>
+                <span class="spec-value">600 dpi óptico</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">speed</span>
+              <div>
+                <span class="spec-label">Velocidad ADF</span>
+                <span class="spec-value">20 ppm mínimo en escala de grises</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">format_size</span>
+              <div>
+                <span class="spec-label">Formato</span>
+                <span class="spec-value">Carta / Oficio (Legal)</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">wifi</span>
+              <div>
+                <span class="spec-label">Conectividad</span>
+                <span class="spec-value">USB; red opcional según área</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="spec-footnote">
+            <span class="material-symbols-rounded">check_circle</span>
+            Compatible con Microsoft 365 (SharePoint / OneDrive) para archivo digital.
+          </div>
+        </div>
+
+        <div class="spec-card spec-card--exception">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--exception">Requerimiento especial</span>
+            <p class="spec-card-desc">
+              Digitalización de radiografías, documentos de gran formato u otros
+              soportes fuera del tamaño carta/oficio.
+            </p>
+          </div>
+
+          <div class="exception-callout">
+            <span class="material-symbols-rounded">support_agent</span>
+            <div>
+              <strong>Consulte con Informática antes de generar el requerimiento.</strong>
+              <p>Los escáneres especializados (médicos, gran formato) requieren evaluación técnica previa.</p>
+            </div>
+          </div>
+
+          <a href="https://forms.office.com/r/LL775163gp" class="spec-contact-btn">
+            <span class="material-symbols-rounded">add</span>
+            Crear ticket de consulta
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- UPS -->
+    <div class="spec-panel" id="ups">
+
+      <div class="spec-panel-header">
+        <div class="spec-panel-icon">
+          <span class="material-symbols-rounded">battery_charging_full</span>
+        </div>
+        <div>
+          <h2 class="spec-panel-title">UPS</h2>
+          <p class="spec-panel-subtitle">Sistemas de alimentación ininterrumpida</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+
+        <div class="spec-card spec-card--standard">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--standard">Especificación estándar</span>
+            <p class="spec-card-desc">
+              Protección de equipos de cómputo en puestos de trabajo administrativos.
+            </p>
+          </div>
+
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">bolt</span>
+              <div>
+                <span class="spec-label">Capacidad</span>
+                <span class="spec-value">600–900 VA (para 1 computadora + monitor)</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">electric_bolt</span>
+              <div>
+                <span class="spec-label">Tipo</span>
+                <span class="spec-value">Interactivo en línea (Line-Interactive)</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">schedule</span>
+              <div>
+                <span class="spec-label">Autonomía mínima</span>
+                <span class="spec-value">8–10 minutos en carga completa</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">electrical_services</span>
+              <div>
+                <span class="spec-label">Protección</span>
+                <span class="spec-value">Regulación de voltaje, supresión de transientes</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="spec-footnote spec-footnote--info">
+            <span class="material-symbols-rounded">info</span>
+            Para equipos de red (switches, DVR/NVR, servidores) se requieren UPS de mayor capacidad.
+            Consulte la sección de Requerimiento Especial.
+          </div>
+        </div>
+
+        <div class="spec-card spec-card--exception">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--exception">Requerimiento especial</span>
+            <p class="spec-card-desc">
+              Para cuartos de telecomunicaciones, DVR/NVR de videovigilancia,
+              equipos críticos de red o servidores.
+            </p>
+          </div>
+
+          <div class="exception-callout">
+            <span class="material-symbols-rounded">support_agent</span>
+            <div>
+              <strong>Consulte con Informática antes de generar el requerimiento.</strong>
+              <p>
+                Los UPS para infraestructura crítica deben ser Online Doble Conversión,
+                2,000–3,000 VA. La selección depende de la carga real del equipo a proteger.
+              </p>
+            </div>
+          </div>
+
+          <ul class="spec-list spec-list--exception">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">bolt</span>
+              <div>
+                <span class="spec-label">Rango de capacidad</span>
+                <span class="spec-value">2,000–3,000 VA Online doble conversión</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">cases</span>
+              <div>
+                <span class="spec-label">Aplicación típica</span>
+                <span class="spec-value">DVR/NVR CCTV, switches de núcleo, cuarto de telecomunicaciones</span>
+              </div>
+            </li>
+          </ul>
+
+          <a href="https://forms.office.com/r/LL775163gp" class="spec-contact-btn">
+            <span class="material-symbols-rounded">add</span>
+            Crear ticket de consulta
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- REGULADORES -->
+    <div class="spec-panel" id="reguladores">
+
+      <div class="spec-panel-header">
+        <div class="spec-panel-icon">
+          <span class="material-symbols-rounded">electrical_services</span>
+        </div>
+        <div>
+          <h2 class="spec-panel-title">Reguladores de voltaje</h2>
+          <p class="spec-panel-subtitle">Protección básica de red eléctrica</p>
+        </div>
+      </div>
+
+      <div class="spec-grid spec-grid--single">
+
+        <div class="spec-card spec-card--standard">
+          <div class="spec-card-header">
+            <span class="spec-badge spec-badge--standard">Especificación estándar</span>
+            <p class="spec-card-desc">
+              Protección de voltaje para equipos de bajo riesgo donde no se justifica
+              un UPS completo (impresoras, monitores auxiliares, equipos de audio).
+            </p>
+          </div>
+
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">bolt</span>
+              <div>
+                <span class="spec-label">Capacidad</span>
+                <span class="spec-value">500–1,200 VA según carga del equipo</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">electrical_services</span>
+              <div>
+                <span class="spec-label">Tipo</span>
+                <span class="spec-value">Regulador ferrorresonante o electrónico</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="material-symbols-rounded spec-icon">security</span>
+              <div>
+                <span class="spec-label">Protección mínima</span>
+                <span class="spec-value">Supresión de picos, regulación ±10%</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="spec-footnote spec-footnote--warning">
+            <span class="material-symbols-rounded">warning</span>
+            Un regulador no es sustituto de un UPS. Los equipos de cómputo
+            principales deben conectarse siempre a un UPS con batería.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======================================================
+         CTA INFERIOR
+    ====================================================== -->
+    <div class="guide-cta">
+      <div class="guide-cta-inner">
+        <div>
+          <h3 class="guide-cta-title">¿Listo para generar su requerimiento?</h3>
+          <p class="guide-cta-desc">
+            Una vez identificada la especificación correcta, cree su ticket de soporte
+            con los detalles técnicos incluidos.
+          </p>
+        </div>
+        <a href="https://forms.office.com/r/LL775163gp" class="btn-primary">
+          <span class="material-symbols-rounded">add</span>
+          Crear ticket de soporte
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer">
+
+    <div class="footer-inner">
+
+      <!-- MARCA -->
+      <div class="footer-brand">
+
+        <small class="footer-hospital">
+          Hospital de Referencia Nacional de Enfermedades Respiratorias — HRNER
+        </small>
+
+        <div class="footer-department">
+          <img
+            src="img/Logo_Info_White_com.png"
+            alt="Departamento de Informática"
+            class="footer-logo" />
+          <span class="footer-main-title">Departamento de Informática</span>
+        </div>
+
+        <p class="footer-tagline">
+          Tecnología al servicio de la salud institucional.
+        </p>
+
+      </div>
+
+      <!-- MAPA DEL SITIO -->
+      <nav class="footer-nav" aria-label="Mapa del sitio">
+
+        <p class="footer-nav-title">Navegación</p>
+
+        <ul class="footer-nav-list">
+          <li>
+            <a href="index2.html" class="footer-nav-link">
+              <span class="material-symbols-rounded">home</span>
+              Inicio
+            </a>
+          </li>
+          <li>
+            <a href="guias-tecnicas.html" class="footer-nav-link">
+              <span class="material-symbols-rounded">description</span>
+              Guías Técnicas
+            </a>
+          </li>
+          <li>
+            <a href="contacto.html" class="footer-nav-link">
+              <span class="material-symbols-rounded">mail</span>
+              Contacto
+            </a>
+          </li>
+          <li>
+            <a href="https://forms.office.com/r/LL775163gp" class="footer-nav-link">
+              <span class="material-symbols-rounded">support_agent</span>
+              Crear ticket de soporte
+            </a>
+          </li>
+        </ul>
+
+      </nav>
+
+      <!-- META -->
+      <div class="footer-meta">
+        © 2026 HRNER · Ministerio de Salud y Asistencia Social <br>
+        Guatemala C.A
+        <span class="footer-credit">by Mad</span>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- ======================================================
+       SCRIPTS
+  ====================================================== -->
+  <script>
+
+    /* Mobile menu */
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.getElementById('mobileNav');
+    toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+    /* Category switcher */
+    const btns = document.querySelectorAll('.category-btn');
+    const panels = document.querySelectorAll('.spec-panel');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.target;
+
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        panels.forEach(p => {
+          if (p.id === target) {
+            p.classList.add('active');
+          } else {
+            p.classList.remove('active');
+          }
+        });
+
+        /* Scroll suave al panel */
+        document.getElementById(target).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>
