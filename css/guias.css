@@ -555,3 +555,89 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   SPEC NOTE — anotación inline dentro de un spec-item
+========================================================= */
+
+.spec-note {
+
+  display: flex;
+  align-items: flex-start;
+  gap: .4rem;
+
+  margin-top: .45rem;
+  padding: .5rem .7rem;
+
+  border-radius: 8px;
+
+  background: var(--blue-50);
+
+  font-size: .78rem;
+  line-height: 1.55;
+
+  color: var(--blue-800);
+}
+
+.spec-note .material-symbols-rounded {
+  font-size: 15px;
+  color: var(--blue-600);
+  flex-shrink: 0;
+  margin-top: .1rem;
+}
+
+/* Variante advertencia */
+.spec-note--warning {
+  background: var(--yellow-50);
+  color: #5f4300;
+}
+
+.spec-note--warning .material-symbols-rounded {
+  color: #a07800;
+}
+
+/* =========================================================
+   SPEC VALUE LIST — opciones con viñeta dentro de spec-value
+========================================================= */
+
+.spec-value-list {
+
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+
+  margin: 0;
+  padding: 0;
+}
+
+.spec-value-list li {
+
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+
+  font-size: .9rem;
+  line-height: 1.5;
+
+  color: var(--neutral-900);
+}
+
+.spec-value-list li::before {
+
+  content: "";
+
+  display: inline-block;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--blue-600);
+
+  flex-shrink: 0;
+
+  margin-top: .3rem;
+}
