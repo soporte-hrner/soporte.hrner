@@ -197,7 +197,7 @@
   flex-direction: column;
   gap: 1.4rem;
 
-  border: 1.5px solid var(--neutral-300);
+  border: 2px solid var(--blue-800);
   background: var(--white);
 }
 
