@@ -208,8 +208,8 @@
 
 /* Variante excepción */
 .spec-card--exception {
-  border-top: 4px solid var(--yellow-800);
-  background: #fafafa;
+  border-top: 4px solid #9ca3af;
+  background: #f9fafb;
 }
 
 .spec-card-header {
@@ -251,8 +251,8 @@
 }
 
 .spec-badge--exception {
-  background: var(--yellow-100);
-  color: #5f4300;
+  background: #9ca3af;
+  color: #ffffff;
 }
 
 /* =========================================================
@@ -284,16 +284,15 @@
 }
 
 .spec-icon {
-
   font-size: 20px !important;
   color: var(--blue-600);
-
   flex-shrink: 0;
-  margin-top: .1rem;
+  margin-top: .15rem;
+  align-self: flex-start;
 }
 
 .spec-list--exception .spec-icon {
-  color: #a07800;
+  color: #9ca3af;
 }
 
 .spec-label {
@@ -353,12 +352,12 @@
 }
 
 .spec-footnote--warning {
-  background: var(--yellow-50);
-  color: #5f4300;
+  background: #fffbeb;
+  color: #b45309;
 }
 
 .spec-footnote--warning .material-symbols-rounded {
-  color: #a07800;
+  color: #d97706;
 }
 
 .spec-footnote--info {
@@ -371,45 +370,34 @@
 ========================================================= */
 
 .exception-callout {
-
   display: flex;
   align-items: flex-start;
   gap: .85rem;
-
   padding: 1rem 1.1rem;
-
   border-radius: 12px;
-
-  background: var(--yellow-50);
-
-  border: 1px solid var(--yellow-500);
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
 }
 
 .exception-callout .material-symbols-rounded {
   font-size: 22px;
-  color: #a07800;
+  color: #6b7280;
   flex-shrink: 0;
   margin-top: .1rem;
 }
 
 .exception-callout strong {
-
   display: block;
-
   font-size: .88rem;
   font-weight: 600;
-
-  color: #5f4300;
-
+  color: #1f2937;
   margin-bottom: .3rem;
 }
 
 .exception-callout p {
-
   font-size: .84rem;
   line-height: 1.55;
-
-  color: #7a5200;
+  color: #4b5563;
 }
 
 /* =========================================================
@@ -588,12 +576,12 @@
 
 /* Variante advertencia */
 .spec-note--warning {
-  background: var(--yellow-50);
-  color: #5f4300;
+  background: #fffbeb;
+  color: #b45309;
 }
 
 .spec-note--warning .material-symbols-rounded {
-  color: #a07800;
+  color: #d97706;
 }
 
 /* =========================================================
@@ -640,4 +628,8 @@
   flex-shrink: 0;
 
   margin-top: .3rem;
+
+  .spec-list--exception .spec-value-list li::before {
+  background: #9ca3af;
+}
 }
